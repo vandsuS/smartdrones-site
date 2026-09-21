@@ -3382,3 +3382,28 @@ footer {
         opacity: 1;
     }
 }
+/* DESFOQUE SUAVE NO FUNDO DO HERO */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: -6px;
+
+    background: inherit;
+    background-position: center;
+    background-size: cover;
+
+    filter: blur(2.5px);
+
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero > * {
+    position: relative;
+    z-index: 2;
+}
