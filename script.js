@@ -45,3 +45,40 @@ window.addEventListener("scroll", () => {
     }
 
 });
+/* =========================================
+   MENU MOBILE - SMARTDRONES
+========================================= */
+
+const menuToggle = document.querySelector(".menu-toggle");
+const menuPrincipal = document.querySelector("#menu-principal");
+const linksMenu = document.querySelectorAll("#menu-principal a");
+
+if (menuToggle && menuPrincipal) {
+
+    menuToggle.addEventListener("click", () => {
+
+        const aberto = menuPrincipal.classList.toggle("menu-aberto");
+
+        menuToggle.classList.toggle("ativo");
+
+        menuToggle.setAttribute("aria-expanded", aberto);
+
+    });
+
+
+    /* Fecha o menu ao clicar em um link */
+
+    linksMenu.forEach((link) => {
+
+        link.addEventListener("click", () => {
+
+            menuPrincipal.classList.remove("menu-aberto");
+            menuToggle.classList.remove("ativo");
+
+            menuToggle.setAttribute("aria-expanded", "false");
+
+        });
+
+    });
+
+}
