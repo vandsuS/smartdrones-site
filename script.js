@@ -82,3 +82,53 @@ if (menuToggle && menuPrincipal) {
     });
 
 }
+/* =========================================
+   GOOGLE ANALYTICS - CLIQUES IMPORTANTES
+========================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    // WHATSAPP
+    document.querySelectorAll('a[href*="wa.me"]').forEach(function (link) {
+        link.addEventListener("click", function () {
+
+            if (typeof gtag === "function") {
+                gtag("event", "click_whatsapp", {
+                    link_text: link.innerText.trim(),
+                    link_url: link.href
+                });
+            }
+
+        });
+    });
+
+
+    // INSTAGRAM
+    document.querySelectorAll('a[href*="instagram.com"]').forEach(function (link) {
+        link.addEventListener("click", function () {
+
+            if (typeof gtag === "function") {
+                gtag("event", "click_instagram", {
+                    link_text: link.innerText.trim(),
+                    link_url: link.href
+                });
+            }
+
+        });
+    });
+
+
+    // BOTÃO PRINCIPAL DE ORÇAMENTO
+    document.querySelectorAll(".botao-principal").forEach(function (link) {
+        link.addEventListener("click", function () {
+
+            if (typeof gtag === "function") {
+                gtag("event", "click_orcamento", {
+                    local: "hero"
+                });
+            }
+
+        });
+    });
+
+});
